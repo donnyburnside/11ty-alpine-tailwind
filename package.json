@@ -1,0 +1,40 @@
+{
+  "name": "11ty-starter-kit",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "run-s build:*",
+    "build:css": "NODE_ENV=development tailwindcss --input ./src/css/main.css --output ./tmp/css/main.css",
+    "build:js": "NODE_ENV=development rollup --input ./src/js/main.js --dir ./tmp/js --format iife --plugin @rollup/plugin-node-resolve",
+    "build:eleventy": "ELEVENTY_ENV=production npx @11ty/eleventy",
+    "dev": "run-p dev:*",
+    "dev:css": "NODE_ENV=production tailwindcss --input ./src/css/main.css --output ./tmp/css/main.css --watch",
+    "dev:js": "NODE_ENV=production rollup --input ./src/js/main.js --dir ./tmp/js --format iife --plugin @rollup/plugin-node-resolve --watch",
+    "dev:eleventy": "ELEVENTY_ENV=development npx @11ty/eleventy --serve --watch",
+    "clean": "rimraf dist && rimraf tmp"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@rollup/plugin-node-resolve": "^15.3.0",
+    "alpinejs": "^3.14.5",
+    "autoprefixer": "^10.4.20",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.49",
+    "postcss-import": "^16.1.0",
+    "rimraf": "^6.0.1",
+    "rollup": "^4.27.4",
+    "tailwindcss": "^3.4.15"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/donnyburnside/11ty-starter-kit.git"
+  },
+  "keywords": [
+    "11ty",
+    "eleventy",
+    "tailwindcss",
+    "alpinejs"
+  ],
+  "author": "Donny Burnside <hello@donnyburnside.com> (https://donnyburnside.com)",
+  "license": "UNLICENSED",
+  "homepage": "https://github.com/donnyburnside/11ty-starter-kit"
+}
